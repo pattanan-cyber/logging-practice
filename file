@@ -1,0 +1,8 @@
+logging_demo.py WARNING: There are something wrong
+logging_demo.py ERROR: Error
+logging_demo.py CRITICAL: critical
+logging_demo.py Level 35: log level
+logging_demo.py WARNING: There are something wrong
+logging_demo.py ERROR: Error
+logging_demo.py CRITICAL: critical
+logging_demo.py Level 35: log level

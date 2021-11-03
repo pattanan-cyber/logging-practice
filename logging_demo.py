@@ -16,15 +16,14 @@ def logging_test(logger):
     # TODO write a log message that uses each of these log levels.
     #  Your log message should be an example of the sort of information 
     #  you would log at that level:
-    #
-    # debug
-    # info
-    # warning
-    # level = logging.WARN + 5 (custom log level between WARN and ERROR)
-    # error
-    # critical or fatal
     level = logging.WARN + 5  # custom log level
-    print("You forgot to write logging_test")
+    # print("You forgot to write logging_test")
+    logging.debug('There are some bug')
+    logging.info('Try to reload')
+    logging.warning("There are something wrong")
+    logging.error('Error')
+    logging.critical('critical')
+    logging.log(level, 'log level')
 
 
 def simple_config():
@@ -51,17 +50,13 @@ def simple_config():
 
 def my_config():
     """Write your own logging configuration."""
-    # TODO write your own logging configuration
-    #      specify a log file, threshold level, format, and append mode
-    pass
+    FORMAT = '%(filename)s %(levelname)s: %(message)s'
+    logging.basicConfig(format=FORMAT, level=logging.DEBUG, filename="file", filemode='w')
 
 
 if __name__ == "__main__":
-    #
-    # TODO Configure logging using one of these choices:
-
     # 1. Call basicConfig with the default settings
-    logging.basicConfig()
+    # logging.basicConfig()
 
     # 2. Call simple_config to set the format of log messages.
     #    Comment out the above call (#1) to basicConfig for this.
@@ -70,14 +65,14 @@ if __name__ == "__main__":
     # 3. my_config() write your own logging configuration as
     #    described in the assignment. 
     #    Comment out the above calls to simple_config and basicConfig.
-    # my_config() 
+    my_config()
 
     # Log some messages to the root logger using different logging levels.
     logger = logging.getLogger()
     print("Logging to ", str(logger))
+    logger.setLevel(logging.WARN)
     logging_test(logger)
 
-
-    # TODO create a named logger, set a a custom log threshold,
-    #       and call logging_test again with your named logger.
-
+    mylogger = logging.getLogger("foo")
+    mylogger.setLevel(logging.DEBUG)  # log everything
+    logging_test(mylogger)

@@ -1,8 +1,8 @@
 """
 Examples of using Python's logging facility.
 
-Run the file in Python and observe:
-Which messages are actually printed on the console or to a file?
+Run the logging_file in Python and observe:
+Which messages are actually printed on the console or to a logging_file?
 What information is in the message?
 
 For details, see: https://docs.python.org/3/library/logging.html
@@ -34,7 +34,7 @@ def simple_config():
 
     Some named attributes you can set using basicConfig are:
 
-        filename = "name of a file to send log messages to"
+        filename = "name of a logging_file to send log messages to"
         filemode = 'a' (append), 'w' (truncate & open for writing)
         format = a string describing format of log messages
         stream = name of a StreamHandler to use, cannot use with filename attribute
@@ -51,7 +51,7 @@ def simple_config():
 def my_config():
     """Write your own logging configuration."""
     FORMAT = '%(filename)s %(levelname)s: %(message)s'
-    logging.basicConfig(format=FORMAT, level=logging.DEBUG, filename="file", filemode='w')
+    logging.basicConfig(format=FORMAT, level=logging.DEBUG, filename="logging_file", filemode='w')
 
 
 if __name__ == "__main__":
